@@ -4,423 +4,172 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>FinBuddy - Smart Finance Manager</title>
-
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
     <!-- ================= LOGIN PAGE ================= -->
-
     <div id="loginPage" class="login-page">
-
         <div class="login-box">
-
-            <div class="logo">
-                💰
-            </div>
-
+            <div class="logo">💰</div>
             <h1>FinBuddy</h1>
-
-            <p class="subtitle">
-                Your Smart Finance Manager
-            </p>
-
+            <p class="subtitle">Your Smart Finance Manager</p>
             <input type="email" id="email" placeholder="Enter your email">
-
             <input type="password" id="password" placeholder="Enter your password">
-
-            <button onclick="login()">
-                Login
-            </button>
-
-            <p class="login-note">
-                Manage your money. Build better habits.
-            </p>
-
+            <button onclick="login()">Login</button>
+            <p class="login-note">Manage your money. Build better habits.</p>
         </div>
-
     </div>
 
-
     <!-- ================= DASHBOARD ================= -->
-
     <div id="dashboard" style="display:none;">
 
         <!-- HEADER -->
-
         <header class="dashboard-header">
-
             <div>
                 <h1>FinBuddy</h1>
                 <p>Smart Finance Dashboard</p>
             </div>
-
-            <button onclick="logout()" class="logout-btn">
-                Logout
-            </button>
-
+            <button onclick="logout()" class="logout-btn">Logout</button>
         </header>
 
-
         <!-- MAIN CONTENT -->
-
         <main class="dashboard-container">
 
-
             <!-- WELCOME -->
-
             <section class="welcome-section">
-
                 <h2>Welcome back 👋</h2>
-
-                <p>
-                    Track your spending and take control of your finances.
-                </p>
-
+                <p>Track your spending and take control of your finances.</p>
             </section>
-
 
             <!-- ================= SUMMARY CARDS ================= -->
-
             <section class="summary-grid">
-
                 <div class="summary-card">
-
                     <span class="card-icon">💰</span>
-
                     <div>
                         <p>Total Balance</p>
-
-                        <h2 id="balance">
-                            ₹25,000
-                        </h2>
+                        <h2 id="balance">₹0</h2>
                     </div>
-
                 </div>
 
-
                 <div class="summary-card">
-
                     <span class="card-icon">📈</span>
-
                     <div>
                         <p>Total Income</p>
-
-                        <h2 id="income">
-                            ₹40,000
-                        </h2>
+                        <h2 id="income">₹0</h2>
                     </div>
-
                 </div>
 
-
                 <div class="summary-card">
-
                     <span class="card-icon">📉</span>
-
                     <div>
                         <p>Total Expenses</p>
-
-                        <h2 id="expense">
-                            ₹15,000
-                        </h2>
+                        <h2 id="expense">₹0</h2>
                     </div>
-
                 </div>
-
 
                 <div class="summary-card">
-
                     <span class="card-icon">🎯</span>
-
                     <div>
                         <p>Budget Left</p>
-
-                        <h2 id="budgetLeft">
-                            ₹10,000
-                        </h2>
+                        <h2 id="budgetLeft">₹0</h2>
                     </div>
-
                 </div>
-
             </section>
-
 
             <!-- ================= ADD TRANSACTION ================= -->
-
             <section class="section">
-
                 <div class="section-heading">
-
                     <div>
                         <h2>➕ Add Transaction</h2>
-
-                        <p>
-                            Record your income or expense.
-                        </p>
+                        <p>Record your income or expense.</p>
                     </div>
-
                 </div>
-
 
                 <div class="transaction-form">
-
                     <select id="transactionType">
-
-                        <option value="expense">
-                            Expense
-                        </option>
-
-                        <option value="income">
-                            Income
-                        </option>
-
+                        <option value="expense">Expense</option>
+                        <option value="income">Income</option>
                     </select>
 
-
                     <input type="number" id="amount" placeholder="Amount ₹">
+                    <input type="text" id="category" placeholder="Category (e.g. Food, Travel, Shopping, Bills)">
 
-
-                    <input type="text" id="category" placeholder="Category">
-
-
-                    <button onclick="addTransaction()">
-                        Add Transaction
-                    </button>
-
+                    <button onclick="addTransaction()">Add Transaction</button>
                 </div>
-
             </section>
-
 
             <!-- ================= TRANSACTIONS ================= -->
-
             <section class="section">
-
                 <div class="section-heading">
-
                     <div>
                         <h2>📋 Recent Transactions</h2>
-
-                        <p>
-                            Your latest financial activity.
-                        </p>
+                        <p>Your latest financial activity.</p>
                     </div>
-
                 </div>
 
-
-                <div id="transactionList" class="transaction-list">
-
-                    <div class="transaction-item">
-
-                        <div>
-                            <strong>Food</strong>
-
-                            <small>
-                                Expense
-                            </small>
-                        </div>
-
-                        <span class="expense-text">
-                            - ₹500
-                        </span>
-
-                    </div>
-
-
-                    <div class="transaction-item">
-
-                        <div>
-                            <strong>Salary</strong>
-
-                            <small>
-                                Income
-                            </small>
-                        </div>
-
-                        <span class="income-text">
-                            + ₹40,000
-                        </span>
-
-                    </div>
-
-                </div>
-
+                <!-- Dynamically filled by JavaScript -->
+                <div id="transactionList" class="transaction-list"></div>
             </section>
-
 
             <!-- ================= MONTHLY BUDGET ================= -->
-
             <section class="section budget-section">
-
                 <div class="section-heading">
-
                     <div>
-
                         <h2>💰 Monthly Budget</h2>
-
-                        <p>
-                            Set your monthly spending limit.
-                        </p>
-
+                        <p>Set your monthly spending limit.</p>
                     </div>
-
                 </div>
-
 
                 <div class="budget-form">
-
                     <input type="number" id="newBudget" placeholder="Enter monthly budget ₹">
-
-
-                    <button onclick="setBudget()">
-                        Set Budget
-                    </button>
-
+                    <button onclick="setBudget()">Set Budget</button>
                 </div>
-
 
                 <div class="budget-info">
-
-                    <h3>
-                        Current Budget:
-                        <span id="showBudget">
-                            ₹25,000
-                        </span>
-                    </h3>
-
-
-                    <p id="budgetMessage">
-                        You have ₹10,000 remaining.
-                    </p>
-
+                    <h3>Current Budget: <span id="showBudget">₹0</span></h3>
+                    <p id="budgetMessage">No budget set yet.</p>
                 </div>
-
             </section>
+
             <!-- ================= SPENDING CHART ================= -->
-
             <section class="section">
-
                 <div class="section-heading">
                     <h2>📊 Spending Overview</h2>
                     <p>Understand where your money is going.</p>
                 </div>
 
-                <div class="chart-container">
-
-                    <div class="chart-bar">
-                        <div class="chart-label">
-                            <span>🍔 Food</span>
-                            <strong>₹4,500</strong>
-                        </div>
-
-                        <div class="bar">
-                            <div class="bar-fill food-bar"></div>
-                        </div>
-                    </div>
-
-
-                    <div class="chart-bar">
-                        <div class="chart-label">
-                            <span>🚗 Travel</span>
-                            <strong>₹3,000</strong>
-                        </div>
-
-                        <div class="bar">
-                            <div class="bar-fill travel-bar"></div>
-                        </div>
-                    </div>
-
-
-                    <div class="chart-bar">
-                        <div class="chart-label">
-                            <span>🛍️ Shopping</span>
-                            <strong>₹2,500</strong>
-                        </div>
-
-                        <div class="bar">
-                            <div class="bar-fill shopping-bar"></div>
-                        </div>
-                    </div>
-
-
-                    <div class="chart-bar">
-                        <div class="chart-label">
-                            <span>📱 Bills</span>
-                            <strong>₹2,000</strong>
-                        </div>
-
-                        <div class="bar">
-                            <div class="bar-fill bills-bar"></div>
-                        </div>
-                    </div>
-
-                </div>
-
+                <!-- Dynamically filled by JavaScript -->
+                <div id="chartContainer" class="chart-container"></div>
             </section>
 
             <!-- ================= AI INSIGHT ================= -->
-
             <section class="section ai-section">
-
                 <div class="section-heading">
-
                     <div>
-
                         <h2>🤖 AI Spending Insight</h2>
-
-                        <p>
-                            Get intelligent insights about your spending.
-                        </p>
-
+                        <p>Get intelligent insights about your spending.</p>
                     </div>
-
                 </div>
-
 
                 <div class="ai-box">
-
-                    <p id="aiInsight">
-
-                        Click the button below to analyze your
-                        spending pattern.
-
-                    </p>
-
-
-                    <button onclick="generateInsight()">
-                        ✨ Generate AI Insight
-                    </button>
-
+                    <p id="aiInsight">Click the button below to analyze your spending pattern.</p>
+                    <button onclick="generateInsight()">✨ Generate AI Insight</button>
                 </div>
-
             </section>
 
-
             <!-- ================= FOOTER ================= -->
-
             <footer>
-
-                <p>
-                    © 2026 FinBuddy | Smart Finance Management
-                </p>
-
+                <p>© 2026 FinBuddy | Smart Finance Management</p>
             </footer>
 
-
         </main>
-
     </div>
 
-
     <!-- JAVASCRIPT -->
-
     <script src="script.js"></script>
-
 </body>
 
 </html>
