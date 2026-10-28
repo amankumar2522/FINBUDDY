@@ -50,7 +50,7 @@
                     <span class="card-icon">💰</span>
                     <div>
                         <p>Total Balance</p>
-                        <h2 id="balance">₹0</h2>
+                        <h2 id="balance">₹0.00</h2>
                     </div>
                 </div>
 
@@ -58,7 +58,7 @@
                     <span class="card-icon">📈</span>
                     <div>
                         <p>Total Income</p>
-                        <h2 id="income">₹0</h2>
+                        <h2 id="income">₹0.00</h2>
                     </div>
                 </div>
 
@@ -66,7 +66,7 @@
                     <span class="card-icon">📉</span>
                     <div>
                         <p>Total Expenses</p>
-                        <h2 id="expense">₹0</h2>
+                        <h2 id="expense">₹0.00</h2>
                     </div>
                 </div>
 
@@ -74,7 +74,7 @@
                     <span class="card-icon">🎯</span>
                     <div>
                         <p>Budget Left</p>
-                        <h2 id="budgetLeft">₹0</h2>
+                        <h2 id="budgetLeft">₹0.00</h2>
                     </div>
                 </div>
             </section>
@@ -95,7 +95,7 @@
                     </select>
 
                     <input type="number" id="amount" placeholder="Amount ₹">
-                    <input type="text" id="category" placeholder="Category (e.g. Food, Travel, Shopping, Bills)">
+                    <input type="text" id="category" placeholder="Category (e.g. Food, Salary)">
 
                     <button onclick="addTransaction()">Add Transaction</button>
                 </div>
@@ -110,7 +110,7 @@
                     </div>
                 </div>
 
-                <!-- Dynamically filled by JavaScript -->
+                <!-- Yeh list ab JS se dynamically aayegi, static items delete kar diye hain -->
                 <div id="transactionList" class="transaction-list"></div>
             </section>
 
@@ -141,8 +141,7 @@
                     <p>Understand where your money is going.</p>
                 </div>
 
-                <!-- Dynamically filled by JavaScript -->
-                <div id="chartContainer" class="chart-container"></div>
+                <div class="chart-container"></div>
             </section>
 
             <!-- ================= AI INSIGHT ================= -->
